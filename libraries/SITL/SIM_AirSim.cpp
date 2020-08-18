@@ -38,6 +38,8 @@ AirSim::AirSim(const char *frame_str) :
         output_type = OutputType::Copter;
     } else if (strstr(frame_str, "-rover")) {
         output_type = OutputType::Rover;
+    } else if (frame_str, "-plane") {
+        output_type = OutputType::Plane;
     } else {
         // default to copter
         output_type = OutputType::Copter;
@@ -102,6 +104,22 @@ void AirSim::output_rover(const struct sitl_input &input)
             printf("Unable to send control output to %s:%u - Error: %s, Return value: %ld\n",
                      airsim_ip, airsim_control_port, strerror(errno), (long)send_ret);
         } else {
+            printf("Sent %ld bytes instead of %lu bytes\n", (long)send_ret, (unsigned long)sizeof(pkt));
+        }
+    }
+}
+
+void AirSim::output_plane(const struct sitl_input& input)
+{
+    plane_packet pkt;
+    
+    ssize_t send_ret = sock.sendto(&pkt, sizeof(pkt), airsim_ip, airsim_control_port);
+    if (send_ret != sizeof(pkt)) {
+        if (send_ret != sizeof(pkt)) {
+            printf("Unable to send control output to %s:%u - Error: %s, Return value: %ld\n",
+                airsim_ip, airsim_control_port, strerror(errno), (long)send_ret);
+        }
+        else {
             printf("Sent %ld bytes instead of %lu bytes\n", (long)send_ret, (unsigned long)sizeof(pkt));
         }
     }
@@ -378,6 +396,10 @@ void AirSim::update(const struct sitl_input &input)
 
         case OutputType::Rover:
             output_rover(input);
+            break;
+
+        case OutputType::Plane:
+            output_plane(input);
             break;
     }
 

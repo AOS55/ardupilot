@@ -45,7 +45,8 @@ public:
 private:
     enum class OutputType {
         Copter = 1,
-        Rover = 2
+        Rover = 2,
+        Plane = 3
     } output_type;
 
     // Control packet for Rover
@@ -79,6 +80,7 @@ private:
 
     void output_copter(const struct sitl_input &input);
     void output_rover(const struct sitl_input &input);
+    void output_plane(const struct sitl_input& input);
     void recv_fdm();
     void report_FPS(void);
 
