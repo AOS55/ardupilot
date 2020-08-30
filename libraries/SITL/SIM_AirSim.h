@@ -12,7 +12,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-/* 
+/*
 	Simulator connector for Airsim: https://github.com/Microsoft/AirSim
 */
 
@@ -23,7 +23,7 @@
 
 namespace SITL {
 
-/* 
+/*
 	Airsim Simulator
 */
 
@@ -67,8 +67,8 @@ private:
         float elevator; // -1 to 1
         float aileron;  // -1 to 1
         float rudder;   // -1 to 1
-        float tla; // 0 to 1
-        // Could also put Throttle/Thrust Lever Angle (TLA) here, no method in AirSim yet though. 
+        // float tla; // 0 to 1
+        // Could also put Throttle/Thrust Lever Angle (TLA) here, no method in AirSim yet though.
     };
 
 	// default connection_info_.ip_address
