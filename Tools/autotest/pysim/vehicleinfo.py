@@ -243,6 +243,11 @@ class VehicleInfo(object):
                 "waf_target": "bin/arduplane",
                 "default_params_filename": "default_params/plane.parm",
             },
+            "airsim-plane": {
+                "waf_target": "bin/arduplane",
+                "default_params_filename": ["default_params/plane.parm",
+                                            "default_params/airsim-plane.parm"],
+            },
             "calibration": {
                 "extra_mavlink_cmds": "module load sitl_calibration;",
             },
@@ -369,6 +374,3 @@ class VehicleInfo(object):
             ret["waf_target"] = opts.build_target
 
         return ret
-
-
-
