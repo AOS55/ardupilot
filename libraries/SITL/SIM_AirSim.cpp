@@ -12,7 +12,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-/* 
+/*
 	Simulator Connector for AirSim
 */
 
@@ -38,7 +38,7 @@ AirSim::AirSim(const char *frame_str) :
         output_type = OutputType::Copter;
     } else if (strstr(frame_str, "-rover")) {
         output_type = OutputType::Rover;
-    } else if (frame_str, "-plane") {
+    } else if (strstr(frame_str, "-plane")) {
         output_type = OutputType::Plane;
     } else {
         // default to copter
