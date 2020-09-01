@@ -334,13 +334,13 @@ void AirSim::recv_fdm()
 @LoggerMessage: ASM1
 @Description: AirSim simulation data
 @Field: TimeUS: Time since system startup
-@Field: TUS: Simulation's timestamp
-@Field: R: Simulation's roll
-@Field: P: Simulation's pitch
-@Field: Y: Simulation's yaw
-@Field: GX: Simulated gyroscope, X-axis
-@Field: GY: Simulated gyroscope, Y-axis
-@Field: GZ: Simulated gyroscope, Z-axis
+@Field: TUS: simulation's timestamp
+@Field: R: simulation's roll
+@Field: P: simulation's pitch
+@Field: Y: simulation's yaw
+@Field: GX: simulation's gyroscope, X-axis
+@Field: GY: simulation's gyroscope, Y-axis
+@Field: GZ: simulation's gyroscope, Z-axis
     AP::logger().Write("ASM1", "TimeUS,TUS,R,P,Y,GX,GY,GZ",
                        "QQffffff",
                        AP_HAL::micros64(),
@@ -367,7 +367,7 @@ void AirSim::recv_fdm()
 @Field: PX: simulation's position, X-axis
 @Field: PY: simulation's position, Y-axis
 @Field: PZ: simulation's position, Z-axis
-@Field: Alt: simulation's gps altitude
+@Field: ALT: simulation's gps altitude
 @Field: SD: simulation's earth-frame speed-down
     AP::logger().Write("ASM2", "TimeUS,AX,AY,AZ,VX,VY,VZ,PX,PY,PZ,Alt,SD",
                        "Qfffffffffff",
