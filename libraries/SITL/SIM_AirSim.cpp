@@ -334,13 +334,13 @@ void AirSim::recv_fdm()
 @LoggerMessage: ASM1
 @Description: AirSim simulation data
 @Field: TimeUS: Time since system startup
-@Field: TUS: simulation's timestamp
-@Field: R: simulation's roll
-@Field: P: simulation's pitch
-@Field: Y: simulation's yaw
-@Field: GX: simulation's gyroscope, X-axis
-@Field: GY: simulation's gyroscope, Y-axis
-@Field: GZ: simulation's gyroscope, Z-axis
+@Field: TUS: simulation timestamp
+@Field: R: simulation roll
+@Field: P: simulation pitch
+@Field: Y: simulation yaw
+@Field: GX: simulation gyroscope, X-axis
+@Field: GY: simulation gyroscope, Y-axis
+@Field: GZ: simulation gyroscope, Z-axis
     AP::logger().Write("ASM1", "TimeUS,TUS,R,P,Y,GX,GY,GZ",
                        "QQffffff",
                        AP_HAL::micros64(),
@@ -358,17 +358,17 @@ void AirSim::recv_fdm()
 @LoggerMessage: ASM2
 @Description: More AirSim simulation data
 @Field: TimeUS: Time since system startup
-@Field: AX: simulation's acceleration, X-axis
-@Field: AY: simulation's acceleration, Y-axis
-@Field: AZ: simulation's acceleration, Z-axis
-@Field: VX: simulation's velocity, X-axis
-@Field: VY: simulation's velocity, Y-axis
-@Field: VZ: simulation's velocity, Z-axis
-@Field: PX: simulation's position, X-axis
-@Field: PY: simulation's position, Y-axis
-@Field: PZ: simulation's position, Z-axis
-@Field: ALT: simulation's gps altitude
-@Field: SD: simulation's earth-frame speed-down
+@Field: AX: simulation acceleration, X-axis
+@Field: AY: simulation acceleration, Y-axis
+@Field: AZ: simulation acceleration, Z-axis
+@Field: VX: simulation velocity, X-axis
+@Field: VY: simulation velocity, Y-axis
+@Field: VZ: simulation velocity, Z-axis
+@Field: PX: simulation position, X-axis
+@Field: PY: simulation position, Y-axis
+@Field: PZ: simulation position, Z-axis
+@Field: ALT: simulation gps altitude
+@Field: SD: simulation earth-frame speed-down
     AP::logger().Write("ASM2", "TimeUS,AX,AY,AZ,VX,VY,VZ,PX,PY,PZ,Alt,SD",
                        "Qfffffffffff",
                        AP_HAL::micros64(),
