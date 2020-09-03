@@ -330,17 +330,17 @@ void AirSim::recv_fdm()
         rcin[i] = state.rc.rc_channels.data[i];
     }
 
-#if 0
-@LoggerMessage: ASM1
-@Description: AirSim simulation data
-@Field: TimeUS: Time since system startup
-@Field: TUS: simulation timestamp
-@Field: R: simulation roll
-@Field: P: simulation pitch
-@Field: Y: simulation yaw
-@Field: GX: simulation gyroscope, X-axis
-@Field: GY: simulation gyroscope, Y-axis
-@Field: GZ: simulation gyroscope, Z-axis
+// #if 0
+// @LoggerMessage: ASM1
+// @Description: AirSim simulation data
+// @Field: TimeUS: Time since system startup
+// @Field: TUS: simulation timestamp
+// @Field: R: simulation roll
+// @Field: P: simulation pitch
+// @Field: Y: simulation yaw
+// @Field: GX: simulation gyroscope, X-axis
+// @Field: GY: simulation gyroscope, Y-axis
+// @Field: GZ: simulation gyroscope, Z-axis
     AP::logger().Write("ASM1", "TimeUS,TUS,R,P,Y,GX,GY,GZ",
                        "QQffffff",
                        AP_HAL::micros64(),
@@ -355,20 +355,20 @@ void AirSim::recv_fdm()
     Vector3f velocity_bf = dcm.transposed() * velocity_ef;
     position = home.get_distance_NED(location);
 
-@LoggerMessage: ASM2
-@Description: More AirSim simulation data
-@Field: TimeUS: Time since system startup
-@Field: AX: simulation acceleration, X-axis
-@Field: AY: simulation acceleration, Y-axis
-@Field: AZ: simulation acceleration, Z-axis
-@Field: VX: simulation velocity, X-axis
-@Field: VY: simulation velocity, Y-axis
-@Field: VZ: simulation velocity, Z-axis
-@Field: PX: simulation position, X-axis
-@Field: PY: simulation position, Y-axis
-@Field: PZ: simulation position, Z-axis
-@Field: ALT: simulation gps altitude
-@Field: SD: simulation earth-frame speed-down
+// @LoggerMessage: ASM2
+// @Description: More AirSim simulation data
+// @Field: TimeUS: Time since system startup
+// @Field: AX: simulation acceleration, X-axis
+// @Field: AY: simulation acceleration, Y-axis
+// @Field: AZ: simulation acceleration, Z-axis
+// @Field: VX: simulation velocity, X-axis
+// @Field: VY: simulation velocity, Y-axis
+// @Field: VZ: simulation velocity, Z-axis
+// @Field: PX: simulation position, X-axis
+// @Field: PY: simulation position, Y-axis
+// @Field: PZ: simulation position, Z-axis
+// @Field: ALT: simulation gps altitude
+// @Field: SD: simulation earth-frame speed-down
     AP::logger().Write("ASM2", "TimeUS,AX,AY,AZ,VX,VY,VZ,PX,PY,PZ,Alt,SD",
                        "Qfffffffffff",
                        AP_HAL::micros64(),
@@ -383,7 +383,7 @@ void AirSim::recv_fdm()
                        position.z,
                        state.gps.alt,
                        velocity_ef.z);
-#endif
+// #endif
 
     last_timestamp = state.timestamp;
 }
