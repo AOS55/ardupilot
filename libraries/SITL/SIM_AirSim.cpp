@@ -176,6 +176,7 @@ bool AirSim::parse_sensors(const char *json)
                 Vector3f *v = (Vector3f *)key.ptr;
                 if (sscanf(p, "[%f, %f, %f]", &v->x, &v->y, &v->z) != 3) {
                     printf("Failed to parse Vector3f for %s/%s\n", key.section, key.key);
+										printf("Failed to parse pointer: %s", p);
                     return false;
                 }
                 break;
@@ -201,6 +202,7 @@ bool AirSim::parse_sensors(const char *json)
                     }
                     if (sscanf(p, "%f,%f,%f,", &v->data[n].x, &v->data[n].y, &v->data[n].z) != 3) {
                         printf("Failed to parse Vector3f for %s/%s[%u]\n", key.section, key.key, n);
+												printf("Failed to parse pointer: %s", p);
                         return false;
                     }
                     n++;
