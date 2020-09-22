@@ -113,10 +113,10 @@ void AirSim::output_plane(const struct sitl_input& input)
 {
     plane_packet pkt;
 
-    pkt.elevator = input.servos[0];
-    pkt.aileron = input.servos[1];
-    pkt.rudder = input.servos[2];
-		pkt.tla = input.servos[3]; // Not sure if this is correct servo number, or if it is even a servo?
+    pkt.aileron = input.servos[0];
+    pkt.elevator = input.servos[1];
+    pkt.tla = input.servos[2];
+		pkt.rudder = input.servos[3]; // Not sure if this is correct servo number, or if it is even a servo?
 
     ssize_t send_ret = sock.sendto(&pkt, sizeof(pkt), airsim_ip, airsim_control_port);
     if (send_ret != sizeof(pkt)) {

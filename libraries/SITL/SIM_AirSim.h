@@ -64,10 +64,10 @@ private:
 
     // plane control packet sent by Ardupilot
     struct plane_packet {
-        float elevator; // -1 to 1
-        float aileron;  // -1 to 1
-        float rudder;   // -1 to 1
-        float tla; // 0 to 1
+        float aileron; // -1 to 1
+        float elevator;  // -1 to 1
+        float tla;   // -1 to 1
+        float rudder; // 0 to 1
         // Could also put Throttle/Thrust Lever Angle (TLA) here, no method in AirSim yet though.
     };
 
