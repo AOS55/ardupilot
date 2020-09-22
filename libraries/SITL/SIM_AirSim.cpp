@@ -118,6 +118,11 @@ void AirSim::output_plane(const struct sitl_input& input)
     pkt.tla = input.servos[2];
 		pkt.rudder = input.servos[3]; // Not sure if this is correct servo number, or if it is even a servo?
 
+		printf("aileron: %d \n", pkt.aileron);
+		printf("elevator: %d \n", pkt.elevator);
+		printf("tla: %d \n", pkt.tla);
+		printf("rudder: %d \n", pkt.rudder);
+
     ssize_t send_ret = sock.sendto(&pkt, sizeof(pkt), airsim_ip, airsim_control_port);
     if (send_ret != sizeof(pkt)) {
         if (send_ret != sizeof(pkt)) {
